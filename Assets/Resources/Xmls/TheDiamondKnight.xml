@@ -1,6 +1,6 @@
 <States>
 
-	<State id="INTRO">
+	<State id="START">
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>The diamond knight stand in front of you without moving</Text>
 		<Options>
@@ -15,6 +15,10 @@
 			<Option>
 				<Text>Walk away</Text>
 				<MoveTo>BYE</MoveTo>
+			</Option>
+			<Option>
+				<Text>Go in circles</Text>
+				<MoveTo>CIRCLE1</MoveTo>
 			</Option>
 		</Options>
 	</State>
@@ -36,7 +40,7 @@
 
 	<State id="DEAD">
 		<Image>DeadPic</Image>
-		<Text>At the moment you showed an actt of aggression, the diamond knight moves very fast and you are dead...</Text>
+		<Text>At the moment you showed an act of aggression, the diamond knight moves very fast and you are dead...</Text>
 		<Options>
 		</Options>
 	</State>
@@ -45,6 +49,44 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>When you turn around and walk away you suddenly hear a soft feminine voice behind you "Goodbye sweetyyyy!"</Text>
 		<Options>
+		</Options>
+	</State>
+
+	<State id="CIRCLE1">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>You starting to go in circles...</Text>
+		<Options>
+			<Option>
+				<Text>Continue Going in circles</Text>
+				<MoveTo>CIRCLE2</MoveTo>
+			</Option>
+			<Option>
+				<Text>Charge</Text>
+				<MoveTo>DEAD</MoveTo>
+			</Option>
+			<Option>
+				<Text>Walk away</Text>
+				<MoveTo>BYE</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="CIRCLE2">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>You Continue to go in circles...</Text>
+		<Options>
+			<Option>
+				<Text>Back to start</Text>
+				<MoveTo>START</MoveTo>
+			</Option>
+			<Option>
+				<Text>Charge</Text>
+				<MoveTo>DEAD</MoveTo>
+			</Option>
+			<Option>
+				<Text>Walk away</Text>
+				<MoveTo>BYE</MoveTo>
+			</Option>
 		</Options>
 	</State>
 

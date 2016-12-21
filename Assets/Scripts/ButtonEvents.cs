@@ -5,10 +5,14 @@ using UnityEngine.EventSystems;
 
 public class ButtonEvents : MonoBehaviour, IPointerDownHandler
 {
-    public GameLoop GameLoopScript;
-    public SnakeDirection Direction;
+    private Manager _managerScript = null;
+	
+    void Awake()
+    {
+        _managerScript = GameObject.Find("Manager").GetComponent<Manager>();
+    }
 
-	// Use this for initialization
+    // Use this for initialization
 	void Start () 
     {
         
@@ -22,8 +26,8 @@ public class ButtonEvents : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Time.timeScale = 1.0F;
-        GameLoopScript.Direction = Direction;
+        string moveTo = gameObject.GetComponent<OptionButton>().MoveTo;
+        _managerScript.LoadState(moveTo);
     }
 
 }

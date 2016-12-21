@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class EscapeToMainScene : MonoBehaviour 
 {
-    public GameLoop GameLoopScript;
 	// Use this for initialization
 	void Start () 
     {
@@ -18,10 +17,10 @@ public class EscapeToMainScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameLoopScript.Score > PlayerPrefs.GetInt("BestScore"))
+            /*if (GameLoopScript.Score > PlayerPrefs.GetInt("BestScore"))
                 PlayerPrefs.SetInt("BestScore", GameLoopScript.Score);
 
-            SceneManager.LoadScene("mainScene");
+            SceneManager.LoadScene("mainScene");*/
         }
 	
 	}
