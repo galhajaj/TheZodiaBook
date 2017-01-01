@@ -1,0 +1,10 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>This is the end of the mountains</Text>
+		<Options>
+		</Options>
+	</State>
+
+</States>

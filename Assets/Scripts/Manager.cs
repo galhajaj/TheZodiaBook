@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using System.Xml;
 
 public class Manager : MonoBehaviour 
 {
     public Text StateDescriptionText;
     public Image StateImage;
-    public string CurrentEvent;
+    public string CurrentArea;
     public GameObject OptionButtonsPanel;
     public GameObject OptionButton;
 
+    private List<string> _events = new List<string>();
+    public string _currentEvent = string.Empty;
+
 	void Start () 
     {
-        LoadEvent(CurrentEvent);
+        LoadArea(CurrentArea);
 	}
 	
 	void Update () 
@@ -21,45 +25,47 @@ public class Manager : MonoBehaviour
 	
 	}
 
+    public void LoadArea(string areaName)
+    {
+        CurrentArea = areaName;
+
+        // clear events
+        _events.Clear();
+
+        //get list of all resources in current area path
+        Object[] objects = Resources.LoadAll("Xmls/" + CurrentArea);
+        foreach (var obj in objects)
+        {
+            //Debug.Log("Loading "+obj.name);
+            _events.Add(obj.name);
+        }
+
+        // load first event
+        LoadNextEvent();
+    }
+
+    public void LoadNextEvent()
+    {
+        string eventName = _events[0];
+
+        _events.RemoveAt(0);
+        _events.Add(eventName);
+
+        LoadEvent(eventName);
+    }
+
     public void LoadEvent(string eventName)
     {
+        _currentEvent = eventName;
+
         LoadState("START");
-        /*TextAsset textAsset = (TextAsset) Resources.Load("Xmls/"+eventName);  
-        if (textAsset == null)
-            Debug.Log("ERROR: " + eventName + ".xml is missing...");
-        XmlDocument xmldoc = new XmlDocument ();
-        xmldoc.LoadXml ( textAsset.text );
-
-        XmlNodeList elemList = xmldoc.GetElementsByTagName("State");
-        XmlNode introElement = elemList[0];
-
-        // set state description
-        StateDescriptionText.text = introElement["Text"].InnerText;
-
-        // set state image
-        string imageName = introElement["Image"].InnerText;
-        Sprite imageSprite = Resources.Load<Sprite>("Images/"+imageName);
-        if (imageSprite == null)
-            Debug.Log("ERROR: " + imageName + ".png is missing...");
-        StateImage.sprite = imageSprite;
-
-        // add option buttons
-        XmlNode optionsNode = introElement["Options"];
-        XmlNodeList optionsNodes = optionsNode.SelectNodes("Option");
-        foreach (XmlNode node in optionsNodes)
-        {
-            GameObject button = Instantiate(OptionButton);
-            button.transform.GetChild(0).GetComponent<Text>().text = node["Text"].InnerText;
-            button.GetComponent<OptionButton>().MoveTo = node["MoveTo"].InnerText;
-            button.transform.SetParent(OptionButtonsPanel.transform, false);
-        }*/
     }
 
     public void LoadState(string stateId)
     {
-        TextAsset textAsset = (TextAsset) Resources.Load("Xmls/"+CurrentEvent);  
+        TextAsset textAsset = (TextAsset) Resources.Load("Xmls/" + CurrentArea + "/" + _currentEvent);  
         if (textAsset == null)
-            Debug.Log("ERROR: " + CurrentEvent + ".xml is missing...");
+            Debug.Log("ERROR: " + CurrentArea + "/" + _currentEvent + ".xml is missing...");
         XmlDocument xmldoc = new XmlDocument ();
         xmldoc.LoadXml ( textAsset.text );
 

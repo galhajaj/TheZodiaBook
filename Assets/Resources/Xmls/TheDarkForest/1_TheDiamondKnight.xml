@@ -1,0 +1,55 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>In front of you, standing the diamond knight without moving</Text>
+		<Options>
+			<Option>
+				<Text>"Hello!"</Text>
+				<MoveTo>state:STARE</MoveTo>
+			</Option>
+			<Option>
+				<Text>Charge</Text>
+				<MoveTo>state:DEAD</MoveTo>
+			</Option>
+			<Option>
+				<Text>Walk away</Text>
+				<MoveTo>state:BYE</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="STARE">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>The diamond knight just staring at you...</Text>
+		<Options>
+			<Option>
+				<Text>Charge</Text>
+				<MoveTo>state:DEAD</MoveTo>
+			</Option>
+			<Option>
+				<Text>Walk away</Text>
+				<MoveTo>state:BYE</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="DEAD">
+		<Image>DeadPic</Image>
+		<Text>At the moment you showed an act of aggression, the diamond knight moves very fast and you are dead...</Text>
+		<Options>
+		</Options>
+	</State>
+
+	<State id="BYE">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>When you turn around and walk away you suddenly hear a soft feminine voice behind you "Goodbye sweetyyyy!"</Text>
+		<Options>
+			<Option>
+				<Text>Continue...</Text>
+				<MoveTo>event:next</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+</States>

@@ -1,0 +1,40 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>"Helloooo what's up?? Here, take a sword man!"</Text>
+		<Options>
+			<Option>
+				<Text>Refuse</Text>
+				<MoveTo>state:BLACKSMITH_ANGRY</MoveTo>
+			</Option>
+			<Option>
+				<Text>"Thanks dude!"</Text>
+				<MoveTo>state:BLACKSMITH_HAPPY</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="BLACKSMITH_ANGRY">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>"Say whaaaaa?? Go out!!"</Text>
+		<Options>
+			<Option>
+				<Text>Go out</Text>
+				<MoveTo>event:_Start</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="BLACKSMITH_HAPPY">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>"Enjoy! See ya..."</Text>
+		<Options>
+			<Option>
+				<Text>"Byeeee..."</Text>
+				<MoveTo>event:_Start</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+</States>

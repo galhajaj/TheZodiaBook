@@ -1,0 +1,18 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>You entered the dark forest!!! it's very dark...</Text>
+		<Options>
+			<Option>
+				<Text>Go back to the little town</Text>
+				<MoveTo>area:LittleTown</MoveTo>
+			</Option>
+			<Option>
+				<Text>Continue...</Text>
+				<MoveTo>event:next</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+</States>

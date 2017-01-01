@@ -1,0 +1,14 @@
+<States>
+
+	<State id="START">
+		<Image>DeadPic</Image>
+		<Text>"I'm sorry but the tavern is close... bye bye bye!"</Text>
+		<Options>
+			<Option>
+				<Text>"DAMN!!! Byeeee..."</Text>
+				<MoveTo>event:_Start</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+</States>

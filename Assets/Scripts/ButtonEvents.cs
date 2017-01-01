@@ -27,7 +27,28 @@ public class ButtonEvents : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         string moveTo = gameObject.GetComponent<OptionButton>().MoveTo;
-        _managerScript.LoadState(moveTo);
+        string moveToType = moveTo.Split(':')[0];
+        string moveToName = moveTo.Split(':')[1];
+
+        if (moveToType.ToLower() == "state")
+        {
+            _managerScript.LoadState(moveToName);
+        }
+        else if (moveToType.ToLower() == "event")
+        {
+            if (moveToName.ToLower() == "next")
+            {
+                _managerScript.LoadNextEvent();
+            }
+            else
+            {
+                _managerScript.LoadEvent(moveToName);
+            }
+        }
+        else if (moveToType.ToLower() == "area")
+        {
+            _managerScript.LoadArea(moveToName);
+        }
     }
 
 }

@@ -1,0 +1,14 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>You see the end of the forest... Horrayyyyy! The mountains!!!!</Text>
+		<Options>
+			<Option>
+				<Text>Continue...</Text>
+				<MoveTo>area:TheMountains</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+</States>

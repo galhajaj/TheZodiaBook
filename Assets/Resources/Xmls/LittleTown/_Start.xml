@@ -1,0 +1,22 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>You are standing inside a little town...</Text>
+		<Options>
+			<Option>
+				<Text>Go to the blacksmith</Text>
+				<MoveTo>event:Blacksmith</MoveTo>
+			</Option>
+			<Option>
+				<Text>Go to the tavern</Text>
+				<MoveTo>event:Tavern</MoveTo>
+			</Option>
+			<Option>
+				<Text>Enter the dark forest...</Text>
+				<MoveTo>area:TheDarkForest</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+</States>
