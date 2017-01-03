@@ -2,7 +2,7 @@
 
 	<State id="START">
 		<Image>DiamondKnightStandingPic</Image>
-		<Text>You entering the castle... very nice!!!!</Text>
+		<Text>You are inside the castle...</Text>
 		<Options>
 			<Option>
 				<Text>Continue</Text>

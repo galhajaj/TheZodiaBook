@@ -2,7 +2,7 @@
 
 	<State id="START">
 		<Image>DiamondKnightStandingPic</Image>
-		<Text>In front of you, standing the diamond knight without moving</Text>
+		<Text>In front of you you see a big castle, and guarding it the diamond knight without moving</Text>
 		<Options>
 			<Option>
 				<Text>"Hello!"</Text>
@@ -15,6 +15,10 @@
 			<Option>
 				<Text>Walk away</Text>
 				<MoveTo>state:BYE</MoveTo>
+			</Option>
+			<Option>
+				<Text>"May I enter? Pleassseeeee???"</Text>
+				<MoveTo>state:ENTER</MoveTo>
 			</Option>
 		</Options>
 	</State>
@@ -48,6 +52,17 @@
 			<Option>
 				<Text>Continue...</Text>
 				<MoveTo>event:next</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="ENTER">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>"Sure dude! All you need is to ask nicely! see all those dead bodies? they didn't ask nicely... shame"</Text>
+		<Options>
+			<Option>
+				<Text>Enter...</Text>
+				<MoveTo>subarea:KingKolecCastle</MoveTo>
 			</Option>
 		</Options>
 	</State>

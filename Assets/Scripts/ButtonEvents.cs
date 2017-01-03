@@ -34,20 +34,21 @@ public class ButtonEvents : MonoBehaviour, IPointerDownHandler
         {
             _managerScript.LoadState(moveToName);
         }
-        else if (moveToType.ToLower() == "event")
+        else if (moveToType.ToLower() == "event" && moveToName.ToLower() == "next")
         {
-            if (moveToName.ToLower() == "next")
-            {
-                _managerScript.LoadNextEvent();
-            }
-            else
-            {
-                _managerScript.LoadEvent(moveToName);
-            }
+            _managerScript.LoadNextEvent();
         }
         else if (moveToType.ToLower() == "area")
         {
             _managerScript.LoadArea(moveToName);
+        }
+        else if (moveToType.ToLower() == "subarea")
+        {
+            _managerScript.LoadArea(moveToName, true);
+        }
+        else
+        {
+            Debug.Log("ERROR: move to type " + moveToType.ToLower() + " is not identified!");
         }
     }
 

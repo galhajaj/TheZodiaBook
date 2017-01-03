@@ -1,0 +1,70 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>You are standing inside a little town...</Text>
+		<Options>
+			<Option>
+				<Text>Go to the blacksmith</Text>
+				<MoveTo>state:BLACKSMITH</MoveTo>
+			</Option>
+			<Option>
+				<Text>Go to the tavern</Text>
+				<MoveTo>state:TAVERN</MoveTo>
+			</Option>
+			<Option>
+				<Text>Enter the dark forest...</Text>
+				<MoveTo>area:TheDarkForest</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="BLACKSMITH">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>"Helloooo what's up?? Here, take a sword man!"</Text>
+		<Options>
+			<Option>
+				<Text>Refuse</Text>
+				<MoveTo>state:BLACKSMITH_ANGRY</MoveTo>
+			</Option>
+			<Option>
+				<Text>"Thanks dude!"</Text>
+				<MoveTo>state:BLACKSMITH_HAPPY</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="BLACKSMITH_ANGRY">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>"Say whaaaaa?? Go out!!"</Text>
+		<Options>
+			<Option>
+				<Text>Go out</Text>
+				<MoveTo>state:START</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="BLACKSMITH_HAPPY">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>"Enjoy! See ya..."</Text>
+		<Options>
+			<Option>
+				<Text>"Byeeee..."</Text>
+				<MoveTo>state:START</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+	<State id="TAVERN">
+		<Image>DeadPic</Image>
+		<Text>"I'm sorry but the tavern is close... bye bye bye!"</Text>
+		<Options>
+			<Option>
+				<Text>"DAMN!!! Byeeee..."</Text>
+				<MoveTo>state:START</MoveTo>
+			</Option>
+		</Options>
+	</State>
+
+</States>

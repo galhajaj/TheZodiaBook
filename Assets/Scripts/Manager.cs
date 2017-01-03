@@ -8,7 +8,7 @@ public class Manager : MonoBehaviour
 {
     public Text StateDescriptionText;
     public Image StateImage;
-    public string CurrentArea;
+    public string FirstArea;
     public GameObject OptionButtonsPanel;
     public GameObject OptionButton;
 
@@ -17,7 +17,7 @@ public class Manager : MonoBehaviour
 
 	void Start () 
     {
-        LoadArea(CurrentArea);
+        LoadArea(FirstArea);
 	}
 	
 	void Update () 
@@ -25,19 +25,17 @@ public class Manager : MonoBehaviour
 	
 	}
 
-    public void LoadArea(string areaName)
+    public void LoadArea(string areaName, bool isSubArea = false)
     {
-        CurrentArea = areaName;
-
         // clear events
-        _events.Clear();
+        if (!isSubArea)
+            _events.Clear();
 
         //get list of all resources in current area path
-        Object[] objects = Resources.LoadAll("Xmls/" + CurrentArea);
-        foreach (var obj in objects)
+        Object[] objects = Resources.LoadAll("Xmls/" + areaName);
+        for (int i = objects.Length - 1; i >= 0; --i)
         {
-            //Debug.Log("Loading "+obj.name);
-            _events.Add(obj.name);
+            _events.Insert(0, areaName + "/" + objects[i].name);
         }
 
         // load first event
@@ -46,26 +44,18 @@ public class Manager : MonoBehaviour
 
     public void LoadNextEvent()
     {
-        string eventName = _events[0];
+        _currentEvent = _events[0];
 
         _events.RemoveAt(0);
-        _events.Add(eventName);
-
-        LoadEvent(eventName);
-    }
-
-    public void LoadEvent(string eventName)
-    {
-        _currentEvent = eventName;
 
         LoadState("START");
     }
 
     public void LoadState(string stateId)
     {
-        TextAsset textAsset = (TextAsset) Resources.Load("Xmls/" + CurrentArea + "/" + _currentEvent);  
+        TextAsset textAsset = (TextAsset) Resources.Load("Xmls/" + _currentEvent);  
         if (textAsset == null)
-            Debug.Log("ERROR: " + CurrentArea + "/" + _currentEvent + ".xml is missing...");
+            Debug.Log("ERROR: " + _currentEvent + ".xml is missing...");
         XmlDocument xmldoc = new XmlDocument ();
         xmldoc.LoadXml ( textAsset.text );
 
