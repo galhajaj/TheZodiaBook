@@ -48,7 +48,7 @@ public class ButtonEvents : MonoBehaviour, IPointerDownHandler
         }
         else
         {
-            Debug.Log("ERROR: move to type " + moveToType.ToLower() + " is not identified!");
+            Debug.Log("ERROR: move to type " + moveTo + " is not identified!");
         }
     }
 
