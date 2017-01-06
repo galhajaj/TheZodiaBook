@@ -4,10 +4,7 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>You see the end of the forest... Horrayyyyy! The mountains!!!!</Text>
 		<Options>
-			<Option>
-				<Text>Continue...</Text>
-				<MoveTo>area:TheMountains</MoveTo>
-			</Option>
+			<Option to="area:TheMountains">Continue...</Option>
 		</Options>
 	</State>
 

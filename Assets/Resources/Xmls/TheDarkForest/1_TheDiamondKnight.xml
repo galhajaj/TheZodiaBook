@@ -4,22 +4,10 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>In front of you you see a big castle, and guarding it the diamond knight without moving</Text>
 		<Options>
-			<Option>
-				<Text>"Hello!"</Text>
-				<MoveTo>state:STARE</MoveTo>
-			</Option>
-			<Option>
-				<Text>Charge</Text>
-				<MoveTo>state:DEAD</MoveTo>
-			</Option>
-			<Option>
-				<Text>Walk away</Text>
-				<MoveTo>state:BYE</MoveTo>
-			</Option>
-			<Option>
-				<Text>"May I enter? Pleassseeeee???"</Text>
-				<MoveTo>state:ENTER</MoveTo>
-			</Option>
+			<Option to="state:STARE">"Hello!"</Option>
+			<Option to="state:DEAD">Charge</Option>
+			<Option to="state:BYE">Walk away</Option>
+			<Option to="state:ENTER">"May I enter? Pleassseeeee???"</Option>
 		</Options>
 	</State>
 
@@ -27,14 +15,8 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>The diamond knight just staring at you...</Text>
 		<Options>
-			<Option>
-				<Text>Charge</Text>
-				<MoveTo>state:DEAD</MoveTo>
-			</Option>
-			<Option>
-				<Text>Walk away</Text>
-				<MoveTo>state:BYE</MoveTo>
-			</Option>
+			<Option to="state:DEAD">Charge</Option>
+			<Option to="state:BYE">Walk away</Option>
 		</Options>
 	</State>
 
@@ -49,10 +31,7 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>When you turn around and walk away you suddenly hear a soft feminine voice behind you "Goodbye sweetyyyy!"</Text>
 		<Options>
-			<Option>
-				<Text>Continue...</Text>
-				<MoveTo>event:next</MoveTo>
-			</Option>
+			<Option to="event:next">Continue...</Option>
 		</Options>
 	</State>
 
@@ -60,10 +39,7 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>"Sure dude! All you need is to ask nicely! see all those dead bodies? they didn't ask nicely... shame"</Text>
 		<Options>
-			<Option>
-				<Text>Enter...</Text>
-				<MoveTo>subarea:KingKolecCastle</MoveTo>
-			</Option>
+			<Option to="subarea:KingKolecCastle">Enter...</Option>
 		</Options>
 	</State>
 

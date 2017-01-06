@@ -104,8 +104,8 @@ public class Manager : MonoBehaviour
         foreach (XmlNode node in optionsNodes)
         {
             GameObject button = Instantiate(OptionButton);
-            button.transform.GetChild(0).GetComponent<Text>().text = node["Text"].InnerText;
-            button.GetComponent<OptionButton>().MoveTo = node["MoveTo"].InnerText;
+            button.transform.GetChild(0).GetComponent<Text>().text = node.InnerText;
+            button.GetComponent<OptionButton>().MoveTo = node.Attributes["to"].Value;
             button.transform.SetParent(OptionButtonsPanel.transform, false);
         }
     }

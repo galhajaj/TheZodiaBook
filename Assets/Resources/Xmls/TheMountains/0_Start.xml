@@ -4,10 +4,7 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>You start to climb on the mountains...</Text>
 		<Options>
-			<Option>
-				<Text>Continue</Text>
-				<MoveTo>state:PEAK</MoveTo>
-			</Option>
+			<Option to="state:PEAK">Continue</Option>
 		</Options>
 	</State>
 
@@ -15,10 +12,7 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>You reach the peak! See ya.</Text>
 		<Options>
-			<Option>
-				<Text>Horray!</Text>
-				<MoveTo>event:next</MoveTo>
-			</Option>
+			<Option to="event:next">Horray!</Option>
 		</Options>
 	</State>
 

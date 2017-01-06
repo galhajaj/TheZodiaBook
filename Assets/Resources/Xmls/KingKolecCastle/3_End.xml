@@ -4,10 +4,7 @@
 		<Image>DiamondKnightStandingPic</Image>
 		<Text>You exiting the castle!</Text>
 		<Options>
-			<Option>
-				<Text>Continue</Text>
-				<MoveTo>event:next</MoveTo>
-			</Option>
+			<Option to="event:next">Continue</Option>
 		</Options>
 	</State>
 
