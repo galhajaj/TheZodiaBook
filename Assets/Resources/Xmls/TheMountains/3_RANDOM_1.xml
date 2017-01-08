@@ -1,0 +1,10 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>This is random a event marker</Text>
+		<Options>
+		</Options>
+	</State>
+
+</States>

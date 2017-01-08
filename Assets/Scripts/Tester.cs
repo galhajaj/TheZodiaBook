@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using System.Linq;
+using System;
 
 public class Tester : MonoBehaviour 
 {
@@ -34,19 +35,33 @@ public class Tester : MonoBehaviour
         foreach (string area in _areas)
         {
             test(area);
+            test(area + "RandomEvents");
         }
 	}
 
     private void test(string areaName)
     {
         int counter = 0;
+        int randomEventsCounter = 0;
 
-        Object[] objects = Resources.LoadAll("Xmls/" + areaName);
+        var objects = Resources.LoadAll("Xmls/" + areaName);
         for (int i = objects.Length - 1; i >= 0; --i)
         {
-            testEvent(areaName, objects[i].name);
+            string eventName = objects[i].name;
+
+            // RANDOM events counter
+            int splitCount = eventName.Split('_').Count();
+            if (splitCount > 1)
+                if (eventName.Split('_')[1] == "RANDOM")
+                    randomEventsCounter += System.Convert.ToInt32(eventName.Split('_')[2]);
+
+            testEvent(areaName, eventName);
             counter++;
         }
+
+        var randomEvents = Resources.LoadAll("Xmls/" + areaName + "RandomEvents");
+        if (randomEvents.Length < randomEventsCounter)
+            Debug.LogError("Not enough random events for " + areaName + " (need " + (randomEventsCounter - randomEvents.Length).ToString() + " more)");
 
         Debug.Log(areaName + ": " + counter.ToString() + " events");
     }

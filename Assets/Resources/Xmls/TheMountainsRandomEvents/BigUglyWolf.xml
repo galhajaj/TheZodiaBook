@@ -1,0 +1,11 @@
+<States>
+
+	<State id="START">
+		<Image>DiamondKnightStandingPic</Image>
+		<Text>Oh no, big ugly wolf!!!!!</Text>
+		<Options>
+			<Option to="event:next">Continue</Option>
+		</Options>
+	</State>
+
+</States>

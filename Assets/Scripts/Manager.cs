@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
+using System;
 
 public class Manager : MonoBehaviour 
 {
@@ -31,11 +32,33 @@ public class Manager : MonoBehaviour
         if (!isSubArea)
             _events.Clear();
 
+        // get list of all random events of that area
+        var allRandomEvents = Resources.LoadAll("Xmls/" + areaName + "RandomEvents");
+        List<string> allRandomEventsList = new List<string>();
+        for (int i = 0; i < allRandomEvents.Length; ++i)
+            allRandomEventsList.Add(allRandomEvents[i].name);
+
         //get list of all resources in current area path
-        Object[] objects = Resources.LoadAll("Xmls/" + areaName);
+        var objects = Resources.LoadAll("Xmls/" + areaName); // var its Object[]
         for (int i = objects.Length - 1; i >= 0; --i)
         {
-            _events.Insert(0, areaName + "/" + objects[i].name);
+            string eventName = objects[i].name;
+
+            if (eventName.Split('_')[1] == "RANDOM")
+            {
+                int numberOfRandomEvents = Convert.ToInt32(eventName.Split('_')[2]);
+                for(int ri = 0; ri < numberOfRandomEvents; ++ri)
+                {
+                    int randomEventIndex = UnityEngine.Random.Range(0, allRandomEventsList.Count);
+                    string randomEvent = allRandomEventsList[randomEventIndex];
+                    allRandomEventsList.RemoveAt(randomEventIndex);
+                    _events.Insert(0, areaName + "RandomEvents/" + randomEvent);
+                }
+            }
+            else
+            {
+                _events.Insert(0, areaName + "/" + eventName);
+            }
         }
 
         // load first event
